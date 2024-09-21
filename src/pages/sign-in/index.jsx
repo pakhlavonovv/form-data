@@ -47,10 +47,10 @@ const Index = () => {
             
          ></ToastContainer>
          <div className="row">
-            <div className="col-3 offset-4 mt-5">
+            <div className="col-3 offset-4 " style={{marginTop: "100px"}}>
                <div className="card">
                   <div className="card-header">
-                     <h1 className="text-center text-2xl">Sign In</h1>
+                     <h1 className="text-center text-4xl"><b>Sign In</b></h1>
                   </div>
                   <div className="card-body">
                      <Formik
@@ -92,7 +92,7 @@ const Index = () => {
                         </Form>
                      </Formik>
                      <Box>
-                        <p className="text-center text-sm ">
+                        <p className="text-center text-sm text-red-500">
                            Don’t have an account?
                         </p>
                         <center>

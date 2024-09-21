@@ -5,12 +5,14 @@ import { CategoryModal } from "@components";
 import BasicTable from "../../components/category-table";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-
+import { useNavigate } from "react-router-dom"; // useNavigate hookini import qilish
 
 const Index = () => {
    const [open, setOpen] = useState(false);
    const [categories, setCategories] = useState([]);
    const [update, setUpdate] = useState({});
+   const navigate = useNavigate(); // useNavigate'ni ishlatamiz
+
    const handleClose = () => {
       setOpen(false);
    };
@@ -26,19 +28,23 @@ const Index = () => {
    };
 
    const deleteCategory = (id) => async () => {
-      const resp = await category.delete(id)
+      const resp = await category.delete(id);
       if (resp.status === 200) {
-         getCategory()
+         getCategory();
       }
    };
 
    const editCategory = (item) => () => {
-      openModal()
+      openModal();
       setUpdate(item);
    };
 
+   const goToSubCategory = (id) => () => {
+      navigate(`/admin-layout/sub-category?categoryId=${id}`); // SubCategory sahifasiga yo'naltirish
+   };
+
    useEffect(() => {
-      getCategory()
+      getCategory();
    }, []);
 
    return (
@@ -64,7 +70,7 @@ const Index = () => {
                      <Button
                         variant="contained"
                         color="success"
-                        className=" w-[80px]"
+                        className=" w-[80px] h-[40px]"
                         onClick={editCategory(row)}
                      >
                         Edit
@@ -73,10 +79,19 @@ const Index = () => {
                         variant="contained"
                         color="error"
                         style={{marginLeft:"10px"}}
-                        className=" w-[80px]"
+                        className=" w-[80px] h-[40px]"
                         onClick={deleteCategory(row.id)}
                      >
                         Delete
+                     </Button>
+                     <Button
+                        variant="contained"
+                        color="primary"
+                        style={{marginLeft:"10px"}}
+                        className=" w-[60px] h-[40px]"
+                        onClick={goToSubCategory(row.id)} // SubCategory tugmasi
+                     >
+                        <i className="fa-solid fa-arrow-right-long"></i>
                      </Button>
                   </TableCell>
                </TableRow>

@@ -5,13 +5,13 @@ import { CategoryModal } from "@components";
 import BasicTable from "../../components/category-table";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import { useNavigate } from "react-router-dom"; // useNavigate hookini import qilish
+import { useNavigate } from "react-router-dom"; 
 
 const Index = () => {
    const [open, setOpen] = useState(false);
    const [categories, setCategories] = useState([]);
    const [update, setUpdate] = useState({});
-   const navigate = useNavigate(); // useNavigate'ni ishlatamiz
+   const navigate = useNavigate(); 
 
    const handleClose = () => {
       setOpen(false);
@@ -40,7 +40,7 @@ const Index = () => {
    };
 
    const goToSubCategory = (id) => () => {
-      navigate(`/admin-layout/sub-category?categoryId=${id}`); // SubCategory sahifasiga yo'naltirish
+      navigate(`/admin-layout/sub-category?categoryId=${id}`); 
    };
 
    useEffect(() => {
@@ -89,7 +89,7 @@ const Index = () => {
                         color="primary"
                         style={{marginLeft:"10px"}}
                         className=" w-[60px] h-[40px]"
-                        onClick={goToSubCategory(row.id)} // SubCategory tugmasi
+                        onClick={goToSubCategory(row.id)}
                      >
                         <i className="fa-solid fa-arrow-right-long"></i>
                      </Button>

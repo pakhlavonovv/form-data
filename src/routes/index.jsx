@@ -10,7 +10,8 @@ import {
    SignIn,
    SignUp,
    Category,
-   SubCategory
+   SubCategory,
+   Brand
 } from "@pages";
 
 const Index = () => {
@@ -22,6 +23,7 @@ const Index = () => {
             <Route path="admin-layout" element={<AdminLayout />}>
                <Route path="category" element={<Category />} />
                <Route path="sub-category" element={<SubCategory />} />
+               <Route path="brand" element={<Brand/>}/>
             </Route>
          </Route>
       )

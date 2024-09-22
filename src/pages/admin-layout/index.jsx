@@ -48,33 +48,29 @@ function ResponsiveDrawer(props) {
          <Toolbar />
          <Divider />
          <List>
-            {admin.map((item, index) => (
-               <NavLink
-                  key={index}
-                  to={item.path}
-                  className={
-                     pathname === item.path
-                        ? "block bg-blue-500 text-white"
-                        : ""
-                  }
-               >
-                  <ListItem disablePadding>
-                     <ListItemButton>
-                        <ListItemIcon>
-                           <span
-                              className={
-                                 pathname === item.path ? "text-white" : ""
-                              }
-                           >
-                              <InboxIcon />
-                           </span>
-                        </ListItemIcon>
-                        <ListItemText primary={item.content} />
-                     </ListItemButton>
-                  </ListItem>
-               </NavLink>
-            ))}
-         </List>
+   {admin.map((item, index) => (
+      <NavLink
+         key={index}
+         to={item.path}
+         className={
+            pathname === item.path ? "block bg-blue-500 text-white" : ""
+         }
+      >
+         <ListItem disablePadding>
+            <ListItemButton>
+               <ListItemIcon>
+                  <span className={pathname === item.path ? "text-white" : ""}>
+                     <InboxIcon />
+                  </span>
+               </ListItemIcon>
+               <ListItemText primary={item.content} />
+            </ListItemButton>
+         </ListItem>
+      </NavLink>
+   ))}
+</List>
+
+
          <Divider />
       </div>
    );
